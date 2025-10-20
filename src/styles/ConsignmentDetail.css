@@ -1,0 +1,19 @@
+.detail {
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 6px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.detail h1 {
+  margin-bottom: 1rem;
+}
+
+.detail p {
+  margin: 0.5rem 0;
+}
+.detail .status {
+  font-weight: bold;
+  color: #0077cc;
+}
