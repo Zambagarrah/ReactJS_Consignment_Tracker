@@ -1,0 +1,7 @@
+1: Prj Setup with Vite, Yarn & Required dependencies i.e React-Router-Dom n Axios.
+2: Routing Setup in App.jsx
+3: Authentication Context
+4: Pages (Stubbed)
+5: API Stub Service
+6: Styling
+7: Wrap with AuthProvider
