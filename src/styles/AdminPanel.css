@@ -1,0 +1,16 @@
+.admin-panel {
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.admin-panel h1 {
+  margin-bottom: 1rem;
+}
+
+.admin-panel ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
