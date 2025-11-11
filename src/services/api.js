@@ -1,5 +1,6 @@
 // src/services/api.js
 import axios from 'axios';
+import Data from './Data.jsx';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -12,44 +13,16 @@ const api = axios.create({
 const useMock = !API_BASE_URL || API_BASE_URL.includes('localhost');
 
 export const fetchConsignments = async () => {
-  if (useMock) {
-    return new Promise((resolve) =>
-      setTimeout(
-        () =>
-          resolve([
-            { id: 1, name: 'Mombasa → Nairobi Freight', status: 'In Transit', reference: 'CN-001' },
-            { id: 2, name: 'Machinery Parts', status: 'Delivered', reference: 'CN-002' },
-            { id: 3, name: 'Perishables', status: 'Awaiting Pickup', reference: 'CN-003' },
-          ]),
-        300
-      )
-    );
-  }
-  const res = await api.get('/consignments');
-  return res.data;
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(Data.consignments), 300);
+  });
 };
 
 export const fetchConsignmentById = async (id) => {
-  if (useMock) {
-    return new Promise((resolve) =>
-      setTimeout(
-        () =>
-          resolve({
-            id: Number(id),
-            name: `Consignment ${id}`,
-            status: id % 2 ? 'In Transit' : 'Delivered',
-            details: 'Handled by Coast Transport Co.',
-            reference: `CN-${String(id).padStart(3, '0')}`,
-            origin: 'Mombasa',
-            destination: 'Nairobi',
-            lastUpdate: new Date().toISOString(),
-          }),
-        300
-      )
-    );
-  }
-  const res = await api.get(`/consignments/${id}`);
-  return res.data;
+  return new Promise((resolve, reject) => {
+    const consignment = Data.consignments.find((c) => c.id === Number(id));
+    consignment ? resolve(consignment) : reject("Not found");
+  });
 };
 
 export const createConsignment = async (data) => {
@@ -62,13 +35,15 @@ export const createConsignment = async (data) => {
   return res.data;
 };
 
-export const loginUser = async (credentials) => {
-  if (useMock) {
-    const role = credentials.username === 'admin' ? 'admin' : 'user';
-    return new Promise((resolve) =>
-      setTimeout(() => resolve({ token: 'mock-token', user: { username: credentials.username, role } }), 250)
+export const loginUser = async ({ username, password }) => {
+  return new Promise((resolve, reject) => {
+    const user = Data.users.find(
+      (u) => u.username === username && u.password === password
     );
-  }
-  const res = await api.post('/auth/login', credentials);
-  return res.data;
+    if (user) {
+      resolve({ token: "mock-token", user });
+    } else {
+      reject("Invalid credentials");
+    }
+  });
 };

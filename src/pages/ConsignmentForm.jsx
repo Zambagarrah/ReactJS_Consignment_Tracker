@@ -1,7 +1,8 @@
 // src/pages/ConsignmentForm.jsx
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Layout from '../components/Layout';
 import { createConsignment } from '../services/api';
+import { ToastContext } from '../context/ToastContext';
 import '../styles/ConsignmentForm.css';
 
 const ConsignmentForm = () => {
@@ -29,6 +30,8 @@ const ConsignmentForm = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const { addToast } = useContext(ToastContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -38,7 +41,7 @@ const ConsignmentForm = () => {
     }
     try {
       await createConsignment(formData);
-      setSuccess('Consignment created successfully!');
+      addToast('Consignment created successfully!', 'success');
       setFormData({
         name: '',
         status: 'In Transit',
@@ -49,7 +52,7 @@ const ConsignmentForm = () => {
       });
       setErrors({});
     } catch {
-      setSuccess('Failed to create consignment');
+      addToast('Failed to create consignment', 'error');
     }
   };
 
