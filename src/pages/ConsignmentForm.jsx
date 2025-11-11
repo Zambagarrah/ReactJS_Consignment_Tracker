@@ -1,37 +1,61 @@
 import { useState } from 'react';
+import { createConsignment } from '../services/api';
+import Layout from '../components/Layout';
 import '../styles/ConsignmentForm.css';
 
 const ConsignmentForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    status: '',
-    details: ''
-  });
+  const [formData, setFormData] = useState({ name: '', status: '', details: '' });
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(null);
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.status.trim()) newErrors.status = 'Status is required';
+    return newErrors;
+  };
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitted:', formData); // Stubbed
-    alert('Consignment submitted (stubbed)');
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length) {
+      setErrors(validationErrors);
+      return;
+    }
+    try {
+      await createConsignment(formData);
+      setSuccess('Consignment created successfully!');
+      setFormData({ name: '', status: '', details: '' });
+      setErrors({});
+    } catch (error) {
+      setSuccess('Failed to create consignment');
+    }
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit} aria-label="Consignment Form">
-      <h2>New Consignment</h2>
-      <label htmlFor="name">Name</label>
-      <input id="name" name="name" value={formData.name} onChange={handleChange} required />
+    <Layout>
+      <form className="form" onSubmit={handleSubmit} aria-label="Consignment Form">
+        <h2>New Consignment</h2>
 
-      <label htmlFor="status">Status</label>
-      <input id="status" name="status" value={formData.status} onChange={handleChange} required />
+        <label htmlFor="name">Name</label>
+        <input id="name" name="name" value={formData.name} onChange={handleChange} required />
+        {errors.name && <span className="error">{errors.name}</span>}
 
-      <label htmlFor="details">Details</label>
-      <textarea id="details" name="details" value={formData.details} onChange={handleChange} />
+        <label htmlFor="status">Status</label>
+        <input id="status" name="status" value={formData.status} onChange={handleChange} required />
+        {errors.status && <span className="error">{errors.status}</span>}
 
-      <button type="submit">Submit</button>
-    </form>
+        <label htmlFor="details">Details</label>
+        <textarea id="details" name="details" value={formData.details} onChange={handleChange} />
+
+        <button type="submit">Submit</button>
+        {success && <p className="success">{success}</p>}
+      </form>
+    </Layout>
   );
 };
 

@@ -1,18 +1,28 @@
 import { createContext, useState } from 'react';
+import { loginUser } from '../services/api';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
 
-  const login = (credentials) => {
-    // Stubbed login logic
-    setIsAuthenticated(true);
+  const login = async (credentials) => {
+    try {
+      const { token } = await loginUser(credentials);
+      localStorage.setItem('authToken', token);
+      setAuthToken(token);
+    } catch (error) {
+      console.error('Login failed', error);
+      throw error;
+    }
   };
 
   const logout = () => {
-    setIsAuthenticated(false);
+    localStorage.removeItem('authToken');
+    setAuthToken(null);
   };
+
+  const isAuthenticated = !!authToken;
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
