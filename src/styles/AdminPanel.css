@@ -1,16 +1,10 @@
-.admin-panel {
-  padding: 2rem;
-  background: #f9f9f9;
-  border-radius: 6px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.admin-panel h1 {
-  margin-bottom: 1rem;
-}
-
-.admin-panel ul {
-  list-style: disc;
-  padding-left: 1.5rem;
-}
+/* src/styles/AdminPanel.css */
+.admin-panel { max-width: 900px; margin: 0 auto; }
+.admin-panel h1 { margin-bottom: 1rem; }
+.admin-panel section { margin-top: 1.5rem; }
+.muted { color: #666; }
+.table { display: grid; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; }
+.table-header { background: #f0f0f0; font-weight: 600; }
+.table-row { display: grid; grid-template-columns: 1fr 150px 150px; gap: 1rem; padding: 0.75rem 1rem; border-top: 1px solid #eee; }
+.table-row:first-child { border-top: none; }
+.table-row button[disabled] { opacity: 0.6; cursor: not-allowed; }
