@@ -17,6 +17,7 @@
   border: 1px solid var(--color-primary);
   border-radius: 6px;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .table-header {
@@ -37,7 +38,42 @@
   border-top: none;
 }
 
-.table-row button[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
+.table-row select {
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-primary);
+}
+
+.table-row button {
+  background: var(--color-error);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-row button:hover {
+  background: var(--color-primary-dark);
+}
+
+.form-inline {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-inline input,
+.form-inline select {
+  padding: 0.5rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 4px;
+}
+
+.form-inline button {
+  background: var(--color-success);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
