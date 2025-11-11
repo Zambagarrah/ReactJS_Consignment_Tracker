@@ -1,20 +1,23 @@
 // src/pages/ConsignmentDetail.jsx
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../components/Layout';
 import { fetchConsignmentById } from '../services/api';
 import '../styles/ConsignmentDetail.css';
+import { ToastContext } from '../context/ToastContext';
 
 const ConsignmentDetail = () => {
   const { id } = useParams();
   const [consignment, setConsignment] = useState(null);
   const [error, setError] = useState(null);
 
+  const { addToast } = useContext(ToastContext);
+
   useEffect(() => {
     fetchConsignmentById(id)
       .then((data) => setConsignment(data))
-      .catch(() => setError('Failed to load consignment'));
-  }, [id]);
+      .catch(() => addToast('Failed to load consignment!', 'error'));
+  }, [addToast, id]);
 
   return (
     <Layout>
