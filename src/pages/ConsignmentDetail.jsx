@@ -1,7 +1,8 @@
+// src/pages/ConsignmentDetail.jsx
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchConsignmentById } from '../services/api';
 import Layout from '../components/Layout';
+import { fetchConsignmentById } from '../services/api';
 import '../styles/ConsignmentDetail.css';
 
 const ConsignmentDetail = () => {
@@ -11,22 +12,36 @@ const ConsignmentDetail = () => {
 
   useEffect(() => {
     fetchConsignmentById(id)
-      .then(data => setConsignment(data))
+      .then((data) => setConsignment(data))
       .catch(() => setError('Failed to load consignment'));
   }, [id]);
 
-  if (error) return <p>{error}</p>;
-  if (!consignment) return <p>Loading...</p>;
-
   return (
     <Layout>
-      <div className="detail">
-        <h1>{consignment.name}</h1>
-        <p><strong>ID:</strong> {consignment.id}</p>
-        <p><strong>Name:</strong> {consignment.name}</p>
-        <p><strong>Status:</strong> {consignment.status}</p>
-        <p><strong>Details:</strong> {consignment.details}</p>
-      </div>
+      {!consignment && !error ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p role="alert">{error}</p>
+      ) : (
+        <div className="detail">
+          <h1>{consignment.name}</h1>
+          <div className="grid">
+            <div>
+              <p><strong>Status:</strong> {consignment.status}</p>
+              <p><strong>Reference:</strong> {consignment.reference}</p>
+              <p><strong>Last update:</strong> {new Date(consignment.lastUpdate).toLocaleString()}</p>
+            </div>
+            <div>
+              <p><strong>Origin:</strong> {consignment.origin}</p>
+              <p><strong>Destination:</strong> {consignment.destination}</p>
+            </div>
+          </div>
+          <div className="card">
+            <h2>Details</h2>
+            <p>{consignment.details}</p>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };
