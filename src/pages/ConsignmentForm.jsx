@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Layout from '../components/Layout';
 import '../styles/ConsignmentForm.css';
 
 const ConsignmentForm = () => {
@@ -30,22 +31,24 @@ const ConsignmentForm = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit} aria-label="Consignment Form">
-      <h2>New Consignment</h2>
+    <Layout>
+      <form className="form" onSubmit={handleSubmit} aria-label="Consignment Form">
+        <h2>New Consignment</h2>
 
-      <label htmlFor="name">Name</label>
-      <input id="name" name="name" value={formData.name} onChange={handleChange} required />
-      {errors.name && <span className="error">{errors.name}</span>}
+        <label htmlFor="name">Name</label>
+        <input id="name" name="name" value={formData.name} onChange={handleChange} required />
+        {errors.name && <span className="error">{errors.name}</span>}
 
-      <label htmlFor="status">Status</label>
-      <input id="status" name="status" value={formData.status} onChange={handleChange} required />
-      {errors.status && <span className="error">{errors.status}</span>}
+        <label htmlFor="status">Status</label>
+        <input id="status" name="status" value={formData.status} onChange={handleChange} required />
+        {errors.status && <span className="error">{errors.status}</span>}
 
-      <label htmlFor="details">Details</label>
-      <textarea id="details" name="details" value={formData.details} onChange={handleChange} />
+        <label htmlFor="details">Details</label>
+        <textarea id="details" name="details" value={formData.details} onChange={handleChange} />
 
-      <button type="submit">Submit</button>
-    </form>
+        <button type="submit">Submit</button>
+      </form>
+    </Layout>
   );
 };
 
