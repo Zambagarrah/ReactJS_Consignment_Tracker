@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { createConsignment } from '../services/api';
 import Layout from '../components/Layout';
 import '../styles/ConsignmentForm.css';
 
 const ConsignmentForm = () => {
   const [formData, setFormData] = useState({ name: '', status: '', details: '' });
   const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(null);
 
   const validate = () => {
     const newErrors = {};
@@ -17,17 +19,21 @@ const ConsignmentForm = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length) {
       setErrors(validationErrors);
       return;
     }
-    console.log('Submitted:', formData);
-    alert('Consignment submitted');
-    setFormData({ name: '', status: '', details: '' });
-    setErrors({});
+    try {
+      await createConsignment(formData);
+      setSuccess('Consignment created successfully!');
+      setFormData({ name: '', status: '', details: '' });
+      setErrors({});
+    } catch (error) {
+      setSuccess('Failed to create consignment');
+    }
   };
 
   return (
@@ -47,6 +53,7 @@ const ConsignmentForm = () => {
         <textarea id="details" name="details" value={formData.details} onChange={handleChange} />
 
         <button type="submit">Submit</button>
+        {success && <p className="success">{success}</p>}
       </form>
     </Layout>
   );

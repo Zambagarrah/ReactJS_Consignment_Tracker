@@ -1,21 +1,19 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
+import { loginUser } from '../services/api';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [authToken, setAuthToken] = useState(() => localStorage.getItem('authToken'));
-  const [loading, setLoading] = useState(true);
+  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
-  const login = async ({ username, password }) => {
-    // Simulate token fetch
-    if (username && password) {
-      const token = 'mock-token-123';
+  const login = async (credentials) => {
+    try {
+      const { token } = await loginUser(credentials);
       localStorage.setItem('authToken', token);
       setAuthToken(token);
+    } catch (error) {
+      console.error('Login failed', error);
+      throw error;
     }
   };
 
@@ -27,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   const isAuthenticated = !!authToken;
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout, loading }}>
+    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
