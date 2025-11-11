@@ -1,0 +1,17 @@
+/* src/styles/NotFound.css */
+.notfound {
+  padding: 2rem;
+  text-align: center;
+}
+.notfound .button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.notfound .button:hover {
+  background: #005fa3;
+}
