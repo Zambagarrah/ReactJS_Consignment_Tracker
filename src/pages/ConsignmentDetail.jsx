@@ -6,15 +6,15 @@ import '../styles/ConsignmentDetail.css';
 const ConsignmentDetail = () => {
   const { id } = useParams();
   const [consignment, setConsignment] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loadDetail = async () => {
-      const data = await fetchConsignmentById(id);
-      setConsignment(data);
-    };
-    loadDetail();
+    fetchConsignmentById(id)
+      .then(data => setConsignment(data))
+      .catch(() => setError('Failed to load consignment'));
   }, [id]);
 
+  if (error) return <p>{error}</p>;
   if (!consignment) return <p>Loading...</p>;
 
   return (
