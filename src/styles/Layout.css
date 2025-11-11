@@ -1,13 +1,15 @@
 .layout {
   font-family: system-ui, sans-serif;
-  color: #333;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0077cc;
+  background: var(--color-primary);
   color: white;
   padding: 1rem 2rem;
 }
@@ -32,15 +34,25 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.user-pill {
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
 nav button {
   background: white;
-  color: #0077cc;
+  color: var(--color-primary);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
 }
 
+nav button:hover {
+  background: var(--color-accent);
+}
 main {
   padding: 2rem;
 }
