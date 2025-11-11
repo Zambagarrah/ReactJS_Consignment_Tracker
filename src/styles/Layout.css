@@ -1,31 +1,58 @@
-/* src/styles/Layout.css */
 .layout {
   font-family: system-ui, sans-serif;
-  color: #333;
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
 }
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0077cc;
-  color: #fff;
+  background: var(--color-primary);
+  color: white;
   padding: 1rem 2rem;
 }
-header h1 { margin: 0; font-size: 1.25rem; }
-nav { display: flex; gap: 1rem; align-items: center; }
-nav a { color: #fff; text-decoration: none; font-weight: 600; }
-nav a:hover { text-decoration: underline; }
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
 .user-pill {
-  background: rgba(255,255,255,0.2);
+  background: var(--color-accent);
+  color: var(--color-primary-dark);
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
 }
+
 nav button {
-  background: #fff;
-  color: #0077cc;
+  background: white;
+  color: var(--color-primary);
   border: none;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
 }
-main { padding: 2rem; }
+
+nav button:hover {
+  background: var(--color-accent);
+}
+main {
+  padding: 2rem;
+}
