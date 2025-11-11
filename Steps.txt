@@ -5,3 +5,40 @@
 5: API Stub Service
 6: Styling
 7: Wrap with AuthProvider
+
+1. Authentication Upgrade (realistic token simulation)
+2. Protected Routing Upgrade
+3. Dashboard with realistic data
+4. Consignment Detail with error handling
+5. Consignment Form with validation
+6. Admin Panel with layout
+7. Added a Shared layout and wrapped the pages.
+8. Environment Configuration
+    Update API Service
+    Update AuthContext to use API
+    Update ConsignmentForm to call API
+9. Routing enhancements with 404 and role-based access
+    Update App routing with 404 and admin-only route
+    Admin-only route guard
+    404 page
+10. Authentication with roles and user context
+    Enhance AuthContext to hold user and role
+    Update API login stub to return role
+    Layout updates: show user and role, accessible nav
+        Update Layout component
+11. Dashboard search and status filters
+    Enhanced Dashboard with search + filter + empty states
+12. Admin panel: minor refinements for production feel
+    Admin panel wrapped in Layout and table placeholders
+13. Consignment detail: show richer fields and layout
+    Update detail page to include common logistics fields
+14. Consignment form: minor UX refinements
+    Wrap with Layout and add status options
+
+
+15. Pink Color Palette
+    Global Theme Variables
+    Layout with Pink Header
+    Dashboard Styling
+    Form Styling
+    Admin Panel Styling
