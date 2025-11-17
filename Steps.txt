@@ -48,6 +48,6 @@
 17. Implemented Dbs Model in JSON format into Data.jsx
 
 1. Implementing CRUD in API
-2. Wire up the AdminPanel to actually use the CRUD operations we built in api.js against our Data.jsx mock database.
+2. Wire up the AdminPanel to actually use the CRUD operations we built in api.js against our Data.jsx mock database..
 
 
