@@ -52,3 +52,5 @@
         Registration Page
         Login Page
         Styling
+        Add routes for /login and /register
+        Redirect After Success to /dashboard
