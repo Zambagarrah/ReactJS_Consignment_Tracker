@@ -1,12 +1,12 @@
-// src/pages/LoginPage.jsx
+// src/pages/RegisterPage.jsx
 import { useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { ToastContext } from '../context/ToastContext';
 import Layout from '../components/Layout';
 import '../styles/Auth.css';
 
-const LoginPage = () => {
-  const { login } = useContext(AuthContext);
+const RegisterPage = () => {
+  const { register } = useContext(AuthContext);
   const { addToast } = useContext(ToastContext);
   const [form, setForm] = useState({ username: '', password: '' });
 
@@ -15,8 +15,8 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(form);
-      addToast('Login successful!', 'success');
+      await register(form);
+      addToast('Registration successful!', 'success');
     } catch (err) {
       addToast(err.message, 'error');
     }
@@ -25,15 +25,15 @@ const LoginPage = () => {
   return (
     <Layout>
       <form className="auth-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>Register</h2>
         <label>Username</label>
         <input name="username" value={form.username} onChange={handleChange} required />
         <label>Password</label>
         <input type="password" name="password" value={form.password} onChange={handleChange} required />
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
     </Layout>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -46,3 +46,9 @@
         Wrap App with ToastProvider
         Use Toasts in pages
 17. Implemented Dbs Model in JSON format into Data.jsx
+
+18. Added a functional Registration & login Pages
+        Update AuthContext.jsx We’ll extend it to support registration and login using Data.jsx
+        Registration Page
+        Login Page
+        Styling
