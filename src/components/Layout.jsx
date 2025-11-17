@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/register');
   };
 
   return (
