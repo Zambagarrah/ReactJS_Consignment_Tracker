@@ -19,7 +19,7 @@ const RegisterPage = () => {
     try {
       await register(form);
       addToast('Registration successful!', 'success');
-      navigate('/dashboard');
+      navigate('/login');
     } catch (err) {
       addToast(err.message, 'error');
     }
