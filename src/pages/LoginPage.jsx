@@ -1,5 +1,6 @@
 // src/pages/LoginPage.jsx
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { ToastContext } from '../context/ToastContext';
 import Layout from '../components/Layout';
@@ -8,6 +9,7 @@ import '../styles/Auth.css';
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
   const { addToast } = useContext(ToastContext);
+  const navigate = useNavigate();
   const [form, setForm] = useState({ username: '', password: '' });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -17,6 +19,7 @@ const LoginPage = () => {
     try {
       await login(form);
       addToast('Login successful!', 'success');
+      navigate('/dashboard');
     } catch (err) {
       addToast(err.message, 'error');
     }

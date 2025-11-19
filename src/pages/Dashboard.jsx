@@ -36,7 +36,7 @@ const Dashboard = () => {
   return (
     <Layout>
       <div className="dashboard">
-        <h1>Consignment Dashboard</h1>
+        <h1>Dashboard</h1>
 
         <div className="controls" role="search">
           <label htmlFor="search" className="visually-hidden">Search consignments</label>
@@ -65,7 +65,7 @@ const Dashboard = () => {
         {loading ? (
           <p>Loading...</p>
         ) : filtered.length === 0 ? (
-          <p role="status">No consignments match your filters.</p>
+          <p role="status">No Orders match your filters.</p>
         ) : (
           <ul className="consignment-list" aria-label="Consignment List">
             {filtered.map((c) => (
