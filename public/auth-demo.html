@@ -1,14 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" >
-    <title>consignment-tracker</title>
-  </head>
-  <body>
-  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up / Login - Demo</title>
+  <!-- Use a relative path so the CSS loads when opened directly or when served by Vite -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
   <div class="auth-container">
     <div class="form-box">
       <!-- Signup Form -->
@@ -33,24 +33,36 @@
   </div>
 
   <script>
-    // Basic toggling (no page reload)
+    // Toggling forms so only one is visible and interactive at a time
     const signupForm = document.getElementById('signup-form');
     const loginForm = document.getElementById('login-form');
     const loginLink = document.getElementById('login-link');
     const signupLink = document.getElementById('signup-link');
 
+    // initialize ARIA states
+    signupForm.setAttribute('aria-hidden', 'false');
+    loginForm.setAttribute('aria-hidden', 'true');
+
+    function showForm(toShow, toHide) {
+      // remove active from hidden form after a small delay to allow transition
+      toHide.classList.remove('active');
+      toHide.setAttribute('aria-hidden', 'true');
+
+      // make target visible and interactive
+      toShow.classList.add('active');
+      toShow.setAttribute('aria-hidden', 'false');
+    }
+
     loginLink.addEventListener('click', (e) => {
       e.preventDefault();
-      signupForm.classList.remove('active');
-      loginForm.classList.add('active');
+      showForm(loginForm, signupForm);
     });
 
     signupLink.addEventListener('click', (e) => {
       e.preventDefault();
-      loginForm.classList.remove('active');
-      signupForm.classList.add('active');
+      showForm(signupForm, loginForm);
     });
   </script>
-    
-  </body>
+
+</body>
 </html>
