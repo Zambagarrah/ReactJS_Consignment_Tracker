@@ -24,6 +24,20 @@ nav {
   align-items: center;
 }
 
+.imgwrapper {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 nav a {
   color: white;
   text-decoration: none;
@@ -64,28 +78,36 @@ footer {
   color: var(--color-bg);
   position: fixed;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  font-size: 0.9rem;
   bottom: 0;
   border-top: 1px solid var(--color-primary-dark);
 }
 
-/* .footer {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #f8f8f8;
-  text-align: center;
-  border-top: 1px solid #ddd;
-} */
-
 .footer .slogan {
   font-weight: bold;
   color: var(--color-bg);
-  margin-bottom: 0.5rem;
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
 }
 
 .footer .social-links a {
-  margin: 0 0.5rem;
   color: var(--color-bg);
   text-decoration: none;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  margin-left: 1rem;
+  font-size: 1.2rem;
 }
 
 .footer .social-links a:hover {

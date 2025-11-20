@@ -2,6 +2,10 @@
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import Logo from '../assets/Logo.webp';
+
 import '../styles/Layout.css';
 
 const Layout = ({ children }) => {
@@ -16,7 +20,10 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <header role="banner">
-        <h1>Cargo · Track</h1>
+        <div className="imgwrapper">
+          <img src={Logo} alt="CargoTruckLogo"/>
+        </div>
+        <h1>CargoTrack</h1>
         <nav aria-label="Primary" role="navigation">
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/new-consignment">New</Link>
@@ -31,14 +38,15 @@ const Layout = ({ children }) => {
       <main role="main">{children}</main>
 
       <footer role="contentinfo" className="footer">
-        <h1>Cargo Track</h1>
+        <h1>CargoTrack</h1>
         <p className="slogan">Track Smarter · Move Faster</p>
         <div className="social-links">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            Instagram
+            <FaInstagram />
+            
           </a>
           <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-            TikTok
+            <FaFacebookF />
           </a>
         </div>
       </footer>
