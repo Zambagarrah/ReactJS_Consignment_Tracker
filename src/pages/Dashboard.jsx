@@ -39,7 +39,7 @@ const Dashboard = () => {
         <h1>Dashboard</h1>
 
         <div className="controls" role="search">
-          <label htmlFor="search" className="visually-hidden">Search consignments</label>
+          <label htmlFor="search" className="visually-hidden">Search Orders</label>
           <input
             id="search"
             type="search"
@@ -82,7 +82,7 @@ const Dashboard = () => {
           </ul>
         )}
 
-        <Link to="/new-consignment" className="button">Add New Consignment</Link>
+        <Link to="/new-consignment" className="button">Add New Order</Link>
       </div>
     </Layout>
   );
