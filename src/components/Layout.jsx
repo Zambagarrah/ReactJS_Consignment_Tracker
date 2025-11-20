@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import '../styles/Layout.css';
+import Image from '../assets/trucker.png';
 
 const Layout = ({ children }) => {
   const { logout, user } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
             {user?.username} · {user?.role}
           </span>
           <button onClick={handleLogout} aria-label="Logout">Logout</button>
+          <img src={Image} alt="trucker" class="Contrucker"/>
         </nav>
       </header>
 
@@ -41,6 +43,7 @@ const Layout = ({ children }) => {
             TikTok
           </a>
         </div>
+        <img src={Image} alt="trucker" class="trucker"/>
       </footer>
     </div>
   );
