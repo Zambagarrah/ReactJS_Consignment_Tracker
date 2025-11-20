@@ -56,3 +56,38 @@ nav button:hover {
 main {
   padding: 2rem;
 }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border-top: 1px solid var(--color-primary-dark);
+}
+
+/* .footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  text-align: center;
+  border-top: 1px solid #ddd;
+} */
+
+.footer .slogan {
+  font-weight: bold;
+  color: var(--color-bg);
+  margin-bottom: 0.5rem;
+}
+
+.footer .social-links a {
+  margin: 0 0.5rem;
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.footer .social-links a:hover {
+  color: var(--color-bg);
+}
