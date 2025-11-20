@@ -1,5 +1,16 @@
 /* src/styles/ConsignmentDetail.css */
-.detail { max-width: 900px; margin: 0 auto; }
+.detail { max-width: 1000px; margin: 0 auto; background: #fafafa; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+.consignment-detail {
+  margin: 1rem;
+}
+.img_dets {
+  background-image: url('../assets/Congsimnesidsbvjafcvrsiye\,hjyvg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 120px); /* Adjust based on header and footer height */
+}
 .detail h1 { margin-bottom: 1rem; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
 .card { background: #fafafa; border: 1px solid #eee; border-radius: 6px; padding: 1rem; }

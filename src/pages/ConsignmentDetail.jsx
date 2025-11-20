@@ -20,13 +20,15 @@ const ConsignmentDetail = () => {
   }, [addToast, id]);
 
   return (
-    <Layout>
+    <Layout className="consignment-detail">
+      <div className="img_dets">
+
       {!consignment && !error ? (
         <p>Loading...</p>
       ) : error ? (
         <p role="alert">{error}</p>
       ) : (
-        <div className="detail">
+        <div className="detail ">
           <h1>{consignment.name}</h1>
           <div className="grid">
             <div>
@@ -45,6 +47,7 @@ const ConsignmentDetail = () => {
           </div>
         </div>
       )}
+      </div>
     </Layout>
   );
 };

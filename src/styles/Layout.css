@@ -27,9 +27,18 @@ nav {
 .imgwrapper {
   width: 40px;
   height: 40px;
+
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: .5rem;
   margin-right: 0.5rem;
+}
+
+.img_back {
+  background-image: url('../assets/Main_background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 120px); /* Adjust based on header and footer height */
 }
 
 img {
