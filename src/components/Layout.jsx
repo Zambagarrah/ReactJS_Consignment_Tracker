@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
         </nav>
       </header>
 
-      <main role="main">{children}</main>
+      <main role="main" className='img_back'>{children}</main>
 
       <footer role="contentinfo" className="footer">
         <h1>CargoTrack</h1>
