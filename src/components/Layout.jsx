@@ -26,6 +26,7 @@ const Layout = ({ children }) => {
         </nav>
       </header>
       <main role="main">{children}</main>
+      <footer></footer>
     </div>
   );
 };
