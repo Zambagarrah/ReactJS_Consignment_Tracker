@@ -94,8 +94,8 @@ footer {
 
 
 .trucker {
-    width: 160px;              
-    height: auto;              
+    width: 95px;              
+    height: 95px;              
     display: block;
     position: absolute;        
     top: 50%;                  
@@ -111,8 +111,8 @@ footer {
 }
 
 .Contrucker {
-    width: 160px;              
-    height: auto;              
+    width: 95px;              
+    height: 95px;              
     display: block;            
     margin: 20px auto;
     object-fit: contain;       
