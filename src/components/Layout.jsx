@@ -7,6 +7,7 @@ import { FaInstagram } from "react-icons/fa";
 import Logo from '../assets/Logo.webp';
 
 import '../styles/Layout.css';
+import Image from '../assets/trucker.png';
 
 const Layout = ({ children }) => {
   const { logout, user } = useContext(AuthContext);
@@ -32,6 +33,7 @@ const Layout = ({ children }) => {
             {user?.username} · {user?.role}
           </span>
           <button onClick={handleLogout} aria-label="Logout">Logout</button>
+          <img src={Image} alt="trucker" class="Contrucker"/>
         </nav>
       </header>
 
@@ -49,6 +51,7 @@ const Layout = ({ children }) => {
             <FaFacebookF />
           </a>
         </div>
+        <img src={Image} alt="trucker" class="trucker"/>
       </footer>
     </div>
   );

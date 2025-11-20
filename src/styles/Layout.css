@@ -122,3 +122,38 @@ footer {
 .footer .social-links a:hover {
   color: var(--color-bg);
 }
+
+
+.trucker {
+    width: 160px;              
+    height: auto;              
+    display: block;
+    position: absolute;        
+    top: 50%;                  
+    left: 30px;                
+    transform: translateY(-50%); 
+    object-fit: contain;       
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.trucker:hover {
+    transform: translateY(-50%) scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.Contrucker {
+    width: 160px;              
+    height: auto;              
+    display: block;            
+    margin: 20px auto;
+    object-fit: contain;       
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); 
+}
+
+
+.Contrucker:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+
