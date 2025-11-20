@@ -36,7 +36,7 @@ const Dashboard = () => {
   return (
     <Layout>
       <div className="dashboard">
-        <h1>Dashboard</h1>
+        <h1 className='header_dash'>Dashboard</h1>
 
         <div className="controls" role="search">
           <label htmlFor="search" className="visually-hidden">Search Orders</label>
