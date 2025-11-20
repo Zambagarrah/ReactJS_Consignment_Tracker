@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <header role="banner">
-        <h1>Consignment Tracker</h1>
+        <h1>Cargo · Track</h1>
         <nav aria-label="Primary" role="navigation">
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/new-consignment">New</Link>
